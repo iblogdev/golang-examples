@@ -10,16 +10,19 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        module: ["fuzzing", "generics"]
     steps:
     - uses: actions/checkout@v2
 
     - name: Set up Go
       uses: actions/setup-go@v2
       with:
-        go-version: 1.17
+        go-version: 1.18
 
     - name: Build
-      run: go build -v ./...
+      run: go build -v github.com/iblogdev/golang-examples/${{ matrix.module }}
 
     - name: Test
-      run: go test -v ./...
+      run: go test -v github.com/iblogdev/golang-examples/${{ matrix.module }}
