@@ -1,4 +1,7 @@
 go 1.18
 
-use ./fuzzing
-use ./generics
+use (
+    ./fuzzing
+	./generics
+	./pipeline
+)
