@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// https://go.dev/doc/tutorial/generics
+
 type Number interface {
 	int | float64
 }
